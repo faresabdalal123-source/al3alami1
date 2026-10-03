@@ -1,0 +1,3848 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al3almi - مطعمنا الفاخر</title>
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+    background:#121212;
+    color:#e0e0e0;
+    margin:0;
+    padding:0 0 110px;
+    transition:.3s;
+}
+
+body.light{
+    background:#f5f5f5;
+    color:#222
+}
+
+body.light .feature,
+body.light .offer,
+body.light .card,
+body.light .cart-box,
+body.light .customer-box,
+body.light .review,
+body.light .contact-card,
+body.light .search-box,
+body.light .category-btn,
+body.light .account-box,
+body.light .invoice-box,
+body.light .tracking-box{
+    background:#fff;
+    color:#222;
+    border-color:#ddd
+}
+
+body.light .feature h3,
+body.light .name,
+body.light .cart-item-name,
+body.light .section-title,
+body.light .hero h1,
+body.light .account-box h2,
+body.light .invoice-title,
+body.light .tracking-title{
+    color:#222
+}
+
+body.light .feature p,
+body.light .desc,
+body.light .section-subtitle,
+body.light .hero p,
+body.light .menu-description,
+body.light .review p,
+body.light .account-info,
+body.light .invoice-row{
+    color:#666
+}
+
+body.light .footer{
+    background:#e8e8e8;
+    border-color:#ddd
+}
+
+body.light .customer-input,
+body.light .account-input{
+    background:#f7f7f7;
+    color:#222;
+    border-color:#ccc
+}
+
+button,input{
+    font-family:inherit
+}
+
+/* =========================
+   THEME
+========================= */
+
+.theme-button{
+    position:fixed;
+    right:20px;
+    top:20px;
+    z-index:1600;
+    border:1px solid #444;
+    background:#252525;
+    color:#fff;
+    border-radius:50%;
+    width:48px;
+    height:48px;
+    cursor:pointer;
+    font-size:1.2rem;
+    box-shadow:0 5px 20px #0005
+}
+
+body.light .theme-button{
+    background:#fff;
+    color:#222;
+    border-color:#ddd
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:520px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:80px 20px;
+    position:relative;
+    overflow:hidden;
+    background:
+    linear-gradient(#000b,#000e),
+    radial-gradient(circle at center,#492027,#121212 70%)
+}
+
+.hero-content{
+    max-width:850px;
+    position:relative;
+    z-index:2
+}
+
+.hero-logo{
+    font-size:4.5rem;
+    margin-bottom:10px;
+    animation:logoFloat 3s ease-in-out infinite
+}
+
+@keyframes logoFloat{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-8px)}
+}
+
+.hero h1{
+    color:#fff;
+    font-size:3.5rem;
+    margin:0 0 15px;
+    text-shadow:0 5px 25px #000b
+}
+
+.hero h1 span{
+    color:#ff4d5a
+}
+
+.hero p{
+    color:#ccc;
+    font-size:1.25rem;
+    line-height:1.8;
+    margin:0 auto 30px;
+    max-width:700px
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap
+}
+
+.hero-btn{
+    border:none;
+    padding:15px 30px;
+    border-radius:30px;
+    font-size:1.05rem;
+    font-weight:bold;
+    cursor:pointer;
+    text-decoration:none;
+    transition:.3s;
+    display:inline-block
+}
+
+.hero-btn-primary{
+    background:#ff4d5a;
+    color:#fff;
+    box-shadow:0 8px 25px #ff4d5a40
+}
+
+.hero-btn-primary:hover{
+    background:#e63e4a;
+    transform:translateY(-3px)
+}
+
+.hero-btn-secondary{
+    background:#252525;
+    color:#fff;
+    border:1px solid #444
+}
+
+.hero-btn-secondary:hover{
+    background:#333;
+    transform:translateY(-3px)
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.features,
+.offers,
+.reviews,
+.gallery,
+.contact{
+    max-width:1100px;
+    margin:0 auto;
+    padding:50px 20px
+}
+
+.section-title{
+    text-align:center;
+    color:#fff;
+    font-size:2rem;
+    margin:0 0 10px
+}
+
+.section-subtitle{
+    text-align:center;
+    color:#999;
+    margin:0 0 35px;
+    font-size:1rem
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px
+}
+
+.feature{
+    background:#1e1e1e;
+    border:1px solid #2d2d2d;
+    border-radius:15px;
+    padding:25px 15px;
+    text-align:center;
+    transition:.3s
+}
+
+.feature:hover{
+    transform:translateY(-6px);
+    border-color:#ff4d5a
+}
+
+.feature-icon{
+    font-size:2.5rem;
+    margin-bottom:12px
+}
+
+.feature h3{
+    color:#fff;
+    margin:8px 0
+}
+
+.feature p{
+    color:#999;
+    font-size:.9rem;
+    margin:0;
+    line-height:1.5
+}
+
+/* =========================
+   OFFERS
+========================= */
+
+.offers-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px
+}
+
+.offer{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg,#351b20,#1e1e1e);
+    border:1px solid #3b292b;
+    border-radius:18px;
+    padding:25px;
+    min-height:180px;
+    transition:.3s
+}
+
+.offer:hover{
+    transform:translateY(-6px);
+    border-color:#ff4d5a
+}
+
+.offer-badge{
+    display:inline-block;
+    background:#ff4d5a;
+    color:#fff;
+    padding:5px 12px;
+    border-radius:20px;
+    font-size:.8rem;
+    font-weight:bold;
+    margin-bottom:12px
+}
+
+.offer h3{
+    color:#fff;
+    font-size:1.3rem;
+    margin:5px 0 10px
+}
+
+.offer p{
+    color:#aaa;
+    font-size:.9rem;
+    margin:0 0 15px;
+    line-height:1.5
+}
+
+.offer-price{
+    color:#2ecc71;
+    font-size:1.3rem;
+    font-weight:bold
+}
+
+/* =========================
+   MENU
+========================= */
+
+.menu-section{
+    padding-top:35px
+}
+
+h2.menu-main-title{
+    color:#ff4d5a;
+    margin:0;
+    text-align:center;
+    font-size:2.4rem;
+    text-shadow:2px 2px 4px #0008
+}
+
+.menu-description{
+    text-align:center;
+    color:#aaa;
+    font-size:1.1rem;
+    margin:10px 20px 25px
+}
+
+.menu-tools{
+    max-width:1000px;
+    margin:25px auto 10px;
+    padding:0 20px
+}
+
+.search-box{
+    width:100%;
+    padding:15px 20px;
+    border-radius:12px;
+    border:1px solid #333;
+    background:#1e1e1e;
+    color:#fff;
+    font-size:1rem;
+    outline:none;
+    margin-bottom:15px
+}
+
+.search-box:focus{
+    border-color:#ff4d5a
+}
+
+.categories{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px
+}
+
+.category-btn{
+    background:#252525;
+    color:#fff;
+    border:1px solid #333;
+    padding:10px 18px;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:.95rem;
+    transition:.3s
+}
+
+.category-btn:hover,
+.category-btn.active{
+    background:#ff4d5a;
+    border-color:#ff4d5a
+}
+
+.no-results{
+    display:none;
+    text-align:center;
+    color:#aaa;
+    font-size:1.2rem;
+    padding:40px 10px
+}
+
+.menu-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+    padding:20px
+}
+
+.card{
+    background:#1e1e1e;
+    border-radius:15px;
+    box-shadow:0 5px 20px #0006;
+    overflow:hidden;
+    width:300px;
+    transition:.4s;
+    display:flex;
+    flex-direction:column;
+    min-height:440px;
+    border:1px solid #2d2d2d
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 20px 40px #0009;
+    border-color:#ff4d5a
+}
+
+.card-img{
+    width:100%;
+    height:190px;
+    object-fit:cover;
+    background:#2a2a2a;
+    transition:.5s
+}
+
+.card:hover .card-img{
+    transform:scale(1.08)
+}
+
+.card-content{
+    padding:20px;
+    text-align:right;
+    flex-grow:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    z-index:2;
+    background:#1e1e1e
+}
+
+.name{
+    font-size:1.3rem;
+    font-weight:bold;
+    color:#fff;
+    margin-bottom:8px
+}
+
+.desc{
+    color:#aaa;
+    font-size:.9rem;
+    line-height:1.5;
+    margin-bottom:15px;
+    height:45px;
+    overflow:hidden
+}
+
+.quantity-selector{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:15px;
+    background:#252525;
+    padding:8px;
+    border-radius:10px;
+    border:1px solid #333
+}
+
+.qty-btn{
+    background:#333;
+    border:1px solid #444;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    font-size:1.2rem;
+    font-weight:bold;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff
+}
+
+.qty-btn:hover{
+    background:#ff4d5a;
+    border-color:#ff4d5a
+}
+
+.qty-btn:active{
+    transform:scale(.85)
+}
+
+.qty-number{
+    font-size:1.1rem;
+    font-weight:bold;
+    min-width:25px;
+    text-align:center;
+    color:#fff
+}
+
+.card-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:5px;
+    border-top:1px dashed #333;
+    padding-top:10px
+}
+
+.price{
+    color:#ff4d5a;
+    font-size:1.15rem;
+    font-weight:bold
+}
+
+.total-item-price{
+    color:#2ecc71;
+    font-size:1.25rem;
+    font-weight:bold
+}
+
+/* =========================
+   BILLING BAR
+========================= */
+
+.total-billing-bar{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background:#1a1a1a;
+    box-shadow:0 -5px 25px #0008;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:999;
+    border-top:3px solid #ff4d5a
+}
+
+.billing-label{
+    font-size:1.2rem;
+    font-weight:bold;
+    color:#fff
+}
+
+.billing-amount{
+    color:#ff4d5a;
+    font-size:1.7rem;
+    font-weight:bold;
+    margin-right:5px
+}
+
+.send-all-btn{
+    background:#2ecc71;
+    color:#fff;
+    text-decoration:none;
+    padding:12px 25px;
+    border-radius:10px;
+    font-weight:bold;
+    font-size:1.05rem;
+    transition:.3s;
+    box-shadow:0 4px 10px #2ecc7133;
+    cursor:pointer
+}
+
+.send-all-btn:hover{
+    background:#27ae60
+}
+
+/* =========================
+   CART
+========================= */
+
+.cart-button{
+    position:fixed;
+    left:20px;
+    top:20px;
+    z-index:1500;
+    background:#ff4d5a;
+    color:#fff;
+    border:none;
+    border-radius:50px;
+    padding:13px 20px;
+    font-size:1rem;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 5px 20px #0006;
+    transition:.3s
+}
+
+.cart-button:hover{
+    transform:scale(1.05);
+    background:#e63e4a
+}
+
+.cart-count{
+    background:#fff;
+    color:#ff4d5a;
+    border-radius:50%;
+    padding:2px 7px;
+    margin-right:5px;
+    font-size:.85rem
+}
+
+/* =========================
+   OVERLAYS
+========================= */
+
+.cart-overlay,
+.customer-overlay,
+.success-overlay,
+.account-overlay,
+.invoice-overlay,
+.tracking-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:#000c;
+    z-index:3000;
+    align-items:center;
+    justify-content:center;
+    padding:20px
+}
+
+.customer-overlay{z-index:4000}
+.success-overlay{z-index:5000}
+.account-overlay{z-index:6000}
+.invoice-overlay{z-index:7000}
+.tracking-overlay{z-index:8000}
+
+.cart-box,
+.customer-box,
+.success-box,
+.account-box,
+.invoice-box,
+.tracking-box{
+    width:100%;
+    max-width:550px;
+    max-height:90vh;
+    overflow-y:auto;
+    background:#1e1e1e;
+    border:1px solid #333;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 15px 50px #000d
+}
+
+.customer-box{
+    max-width:450px
+}
+
+.success-box{
+    text-align:center;
+    max-width:500px
+}
+
+.account-box{
+    max-width:450px
+}
+
+.invoice-box{
+    max-width:600px
+}
+
+.tracking-box{
+    max-width:600px
+}
+
+/* =========================
+   CART CONTENT
+========================= */
+
+.cart-title,
+.customer-box h2,
+.account-box h2{
+    color:#ff4d5a;
+    text-align:center;
+    margin-top:0;
+    margin-bottom:20px
+}
+
+.cart-item{
+    background:#252525;
+    border:1px solid #333;
+    border-radius:12px;
+    padding:15px;
+    margin-bottom:12px
+}
+
+.cart-item-top,
+.cart-item-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px
+}
+
+.cart-item-bottom{
+    margin-top:12px
+}
+
+.cart-item-name{
+    font-weight:bold;
+    color:#fff;
+    font-size:1.05rem
+}
+
+.cart-item-price{
+    color:#2ecc71;
+    font-weight:bold
+}
+
+.cart-qty{
+    display:flex;
+    align-items:center;
+    gap:8px
+}
+
+.cart-qty button{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    border:none;
+    background:#333;
+    color:#fff;
+    cursor:pointer;
+    font-weight:bold
+}
+
+.cart-qty button:hover{
+    background:#ff4d5a
+}
+
+.remove-item{
+    border:none;
+    background:#c0392b;
+    color:#fff;
+    border-radius:7px;
+    padding:7px 10px;
+    cursor:pointer
+}
+
+.cart-total{
+    border-top:1px dashed #444;
+    padding-top:15px;
+    margin-top:15px;
+    text-align:center;
+    font-size:1.4rem;
+    font-weight:bold;
+    color:#ff4d5a
+}
+
+.cart-buttons,
+.customer-buttons,
+.account-buttons{
+    display:flex;
+    gap:10px;
+    margin-top:20px
+}
+
+.cart-close,
+.cart-send,
+.confirm-order,
+.cancel-order,
+.account-button{
+    flex:1;
+    padding:13px;
+    border:none;
+    border-radius:9px;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:1rem
+}
+
+.cart-close,
+.cancel-order{
+    background:#333;
+    color:#fff
+}
+
+.cart-send,
+.confirm-order,
+.account-button{
+    background:#2ecc71;
+    color:#fff
+}
+
+.empty-cart{
+    text-align:center;
+    color:#aaa;
+    padding:35px 10px;
+    font-size:1.1rem
+}
+
+/* =========================
+   CUSTOMER
+========================= */
+
+.customer-input,
+.account-input{
+    width:100%;
+    padding:13px;
+    margin-bottom:15px;
+    border-radius:8px;
+    border:1px solid #444;
+    background:#252525;
+    color:#fff;
+    font-size:1rem;
+    outline:none
+}
+
+.customer-input:focus,
+.account-input:focus{
+    border-color:#ff4d5a
+}
+
+/* =========================
+   SUCCESS
+========================= */
+
+.success-icon{
+    font-size:4rem;
+    margin-bottom:10px
+}
+
+.success-box h2{
+    color:#2ecc71;
+    margin:5px 0 10px
+}
+
+.success-box p{
+    color:#bbb;
+    line-height:1.7
+}
+
+.order-number{
+    font-size:1.3rem;
+    color:#ff4d5a;
+    font-weight:bold;
+    margin:15px
+}
+
+.success-close{
+    background:#2ecc71;
+    color:#fff;
+    border:none;
+    border-radius:9px;
+    padding:12px 25px;
+    font-weight:bold;
+    cursor:pointer;
+    margin:5px
+}
+
+.invoice-button{
+    background:#ff4d5a;
+    color:#fff;
+    border:none;
+    border-radius:9px;
+    padding:12px 25px;
+    font-weight:bold;
+    cursor:pointer;
+    margin:5px
+}
+
+/* =========================
+   ACCOUNT
+========================= */
+
+.account-info{
+    background:#252525;
+    border:1px solid #333;
+    border-radius:12px;
+    padding:15px;
+    margin-bottom:15px;
+    line-height:2
+}
+
+.account-actions{
+    display:flex;
+    gap:10px
+}
+
+.account-actions button{
+    flex:1;
+    padding:12px;
+    border:none;
+    border-radius:9px;
+    cursor:pointer;
+    font-weight:bold
+}
+
+.save-account{
+    background:#2ecc71;
+    color:#fff
+}
+
+.logout-account{
+    background:#c0392b;
+    color:#fff
+}
+
+.account-open{
+    position:fixed;
+    left:20px;
+    top:75px;
+    z-index:1500;
+    background:#252525;
+    color:#fff;
+    border:1px solid #444;
+    border-radius:50px;
+    padding:10px 17px;
+    cursor:pointer;
+    font-weight:bold
+}
+
+/* =========================
+   INVOICE
+========================= */
+
+.invoice-title{
+    color:#ff4d5a;
+    text-align:center;
+    margin-top:0
+}
+
+.invoice-header{
+    text-align:center;
+    border-bottom:1px dashed #444;
+    padding-bottom:15px;
+    margin-bottom:15px
+}
+
+.invoice-header h3{
+    color:#2ecc71;
+    margin:5px 0
+}
+
+.invoice-row{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:9px 0;
+    border-bottom:1px solid #292929;
+    color:#ccc
+}
+
+.invoice-total{
+    display:flex;
+    justify-content:space-between;
+    margin-top:15px;
+    padding:15px;
+    border-radius:10px;
+    background:#351b20;
+    color:#ff4d5a;
+    font-size:1.3rem;
+    font-weight:bold
+}
+
+.invoice-actions{
+    display:flex;
+    gap:10px;
+    margin-top:20px
+}
+
+.invoice-actions button{
+    flex:1;
+    padding:12px;
+    border:none;
+    border-radius:9px;
+    cursor:pointer;
+    font-weight:bold
+}
+
+.print-invoice{
+    background:#2ecc71;
+    color:#fff
+}
+
+.close-invoice{
+    background:#333;
+    color:#fff
+}
+
+/* =========================
+   TRACKING
+========================= */
+
+.tracking-title{
+    text-align:center;
+    color:#ff4d5a;
+    margin-top:0
+}
+
+.tracking-order-number{
+    text-align:center;
+    color:#2ecc71;
+    font-weight:bold;
+    font-size:1.2rem;
+    margin-bottom:25px
+}
+
+.status-step{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:12px;
+    background:#252525;
+    border:1px solid #333;
+    opacity:.45;
+    transition:.3s
+}
+
+.status-step.active{
+    opacity:1;
+    border-color:#2ecc71;
+    box-shadow:0 0 15px #2ecc7130
+}
+
+.status-icon{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#333;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.2rem
+}
+
+.status-step.active .status-icon{
+    background:#2ecc71
+}
+
+.status-text strong{
+    display:block;
+    color:#fff;
+    margin-bottom:4px
+}
+
+.status-text span{
+    color:#999;
+    font-size:.85rem
+}
+
+.tracking-note{
+    text-align:center;
+    color:#999;
+    margin-top:20px;
+    line-height:1.7
+}
+
+.tracking-buttons{
+    display:flex;
+    gap:10px;
+    margin-top:20px
+}
+
+.tracking-buttons button{
+    flex:1;
+    padding:12px;
+    border:none;
+    border-radius:9px;
+    background:#333;
+    color:#fff;
+    cursor:pointer;
+    font-weight:bold
+}
+
+/* =========================
+   REVIEWS
+========================= */
+
+.reviews-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px
+}
+
+.review{
+    background:#1e1e1e;
+    border:1px solid #2d2d2d;
+    border-radius:15px;
+    padding:22px;
+    text-align:center
+}
+
+.review-stars{
+    font-size:1.2rem;
+    margin-bottom:10px
+}
+
+.review p{
+    color:#aaa;
+    line-height:1.7;
+    margin:8px 0
+}
+
+.review strong{
+    color:#fff
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px
+}
+
+.gallery-item{
+    height:180px;
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid #333;
+    background:#222
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.4s
+}
+
+.gallery-item:hover img{
+    transform:scale(1.08)
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px
+}
+
+.contact-card{
+    background:#1e1e1e;
+    border:1px solid #2d2d2d;
+    border-radius:15px;
+    padding:25px;
+    text-align:center
+}
+
+.contact-icon{
+    font-size:2.2rem
+}
+
+.contact-card h3{
+    color:#fff
+}
+
+.contact-card p{
+    color:#aaa;
+    line-height:1.7
+}
+
+.contact-link{
+    display:inline-block;
+    color:#fff;
+    background:#ff4d5a;
+    padding:10px 18px;
+    border-radius:20px;
+    text-decoration:none;
+    font-weight:bold
+}
+
+/* =========================
+   FLOATING
+========================= */
+
+.whatsapp-float{
+    position:fixed;
+    right:20px;
+    bottom:95px;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:#25D366;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.7rem;
+    text-decoration:none;
+    z-index:1200;
+    box-shadow:0 5px 20px #0006;
+    transition:.3s
+}
+
+.whatsapp-float:hover{
+    transform:scale(1.1)
+}
+
+.back-top{
+    display:none;
+    position:fixed;
+    right:20px;
+    bottom:160px;
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:#ff4d5a;
+    color:#fff;
+    font-size:1.2rem;
+    cursor:pointer;
+    z-index:1200;
+    box-shadow:0 5px 20px #0006
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    margin-top:60px;
+    background:#0c0c0c;
+    border-top:1px solid #292929;
+    text-align:center;
+    padding:35px 20px
+}
+
+.footer-logo{
+    color:#ff4d5a;
+    font-size:1.8rem;
+    font-weight:bold;
+    margin-bottom:10px
+}
+
+.footer p{
+    color:#777;
+    font-size:.9rem;
+    margin:6px
+}
+
+/* =========================
+   DESKTOP ACCOUNT MENU
+========================= */
+
+.account-shortcut{
+    position:fixed;
+    left:20px;
+    top:75px;
+    z-index:1500;
+    background:#252525;
+    color:#fff;
+    border:1px solid #444;
+    border-radius:50px;
+    padding:10px 17px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* =========================
+   SITE NAVIGATION
+========================= */
+
+.site-nav{
+    position:sticky;
+    top:0;
+    z-index:1400;
+    background:#181818f2;
+    border-bottom:1px solid #333;
+    backdrop-filter:blur(12px);
+}
+
+.site-nav-inner{
+    min-height:64px;
+    max-width:1200px;
+    margin:0 auto;
+    padding:8px 150px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:24px;
+}
+
+.site-nav a{
+    color:#eee;
+    text-decoration:none;
+    font-weight:700;
+    white-space:nowrap;
+    padding:10px 4px;
+    transition:color .2s;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible{
+    color:#ff4d5a;
+}
+
+.site-nav-toggle{
+    display:none;
+    border:1px solid #444;
+    border-radius:9px;
+    background:#252525;
+    color:#fff;
+    padding:10px 16px;
+    font:inherit;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+body.light .site-nav{
+    background:#fffffff2;
+    border-color:#ddd;
+}
+
+body.light .site-nav a{color:#222}
+body.light .site-nav a:hover,
+body.light .site-nav a:focus-visible{color:#e63e4a}
+body.light .site-nav-toggle{background:#fff;color:#222;border-color:#ddd}
+
+.hero,
+.offers,
+.menu-section,
+.gallery,
+.contact{
+    scroll-margin-top:72px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .features-grid,
+    .reviews-grid{
+        grid-template-columns:repeat(2,1fr)
+    }
+
+    .offers-grid,
+    .contact-grid{
+        grid-template-columns:1fr
+    }
+
+    .gallery-grid{
+        grid-template-columns:repeat(2,1fr)
+    }
+}
+
+@media(max-width:600px){
+
+    .site-nav-inner{
+        min-height:58px;
+        padding:7px 0;
+        flex-direction:column;
+        gap:0;
+    }
+
+    .site-nav-toggle{display:block}
+
+    .nav-toggle-label{display:none}
+
+    .site-nav-links{
+        display:none;
+        width:100%;
+        padding:8px 14px 12px;
+        flex-direction:column;
+        align-items:stretch;
+        gap:2px;
+        text-align:center;
+    }
+
+    .site-nav.is-open .site-nav-links{display:flex}
+
+    .site-nav-links a{
+        padding:11px;
+        border-top:1px solid #333;
+    }
+
+    body.light .site-nav-links a{border-color:#eee}
+
+    body{
+        padding-bottom:135px
+    }
+
+    .hero{
+        min-height:500px;
+        padding:80px 18px 50px
+    }
+
+    .hero-logo{
+        font-size:3.5rem
+    }
+
+    .hero h1{
+        font-size:2.4rem
+    }
+
+    .hero p{
+        font-size:1rem
+    }
+
+    .hero-btn{
+        width:100%;
+        max-width:300px
+    }
+
+    .features{
+        padding:35px 12px
+    }
+
+    .features-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px
+    }
+
+    .feature{
+        padding:20px 10px
+    }
+
+    .feature-icon{
+        font-size:2rem
+    }
+
+    .feature h3{
+        font-size:1rem
+    }
+
+    .feature p{
+        font-size:.8rem
+    }
+
+    h2.menu-main-title{
+        font-size:2rem
+    }
+
+    .menu-container{
+        padding:10px
+    }
+
+    .card{
+        width:100%;
+        max-width:380px
+    }
+
+    .total-billing-bar{
+        padding:10px;
+        gap:8px
+    }
+
+    .billing-label{
+        font-size:.8rem
+    }
+
+    .billing-amount{
+        font-size:1.1rem;
+        display:block
+    }
+
+    .send-all-btn{
+        padding:10px 12px;
+        font-size:.8rem
+    }
+
+    .cart-button{
+        top:12px;
+        left:12px;
+        padding:10px 15px
+    }
+
+    .theme-button{
+        top:12px;
+        right:12px;
+        width:42px;
+        height:42px
+    }
+
+    .account-shortcut{
+        top:65px;
+        left:12px;
+        padding:8px 12px;
+        font-size:.8rem
+    }
+
+    .whatsapp-float{
+        right:12px;
+        bottom:135px
+    }
+
+    .back-top{
+        right:12px;
+        bottom:195px
+    }
+
+
+    .cart-box,
+    .customer-box,
+    .success-box,
+    .account-box,
+    .invoice-box,
+    .tracking-box{
+        max-height:92vh;
+        padding:18px
+    }
+
+    .gallery-grid{
+        gap:8px
+    }
+
+    .gallery-item{
+        height:140px
+    }
+
+    .invoice-row{
+        font-size:.9rem
+    }
+
+    .status-step{
+        padding:12px
+    }
+
+    .status-icon{
+        width:38px;
+        height:38px
+    }
+
+    .cart-buttons,
+    .customer-buttons,
+    .account-buttons,
+    .account-actions,
+    .invoice-actions,
+    .tracking-buttons{
+        flex-direction:column
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="site-nav" id="site-nav" aria-label="التنقل الرئيسي">
+    <div class="site-nav-inner">
+        <button
+            class="site-nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-nav-links"
+            onclick="toggleNavigation()"
+        >
+            ☰ الأقسام
+        </button>
+        <div class="site-nav-links" id="site-nav-links">
+            <a href="#offers" onclick="closeNavigation()">العروض</a>
+            <a href="#menu-section" onclick="closeNavigation()">القائمة</a>
+            <a href="#gallery" onclick="closeNavigation()">المعرض</a>
+            <a href="#contact" onclick="closeNavigation()">تواصل معنا</a>
+        </div>
+    </div>
+</nav>
+
+<!-- =========================
+     TOP BUTTONS
+========================= -->
+
+<button
+    class="theme-button"
+    onclick="toggleTheme()"
+    id="theme-button"
+    title="تغيير الوضع"
+>
+🌙
+</button>
+
+<button
+    class="cart-button"
+    onclick="openCart()"
+>
+🛒 السلة
+<span class="cart-count" id="cart-count">0</span>
+</button>
+
+<button
+    class="account-shortcut"
+    onclick="openAccount()"
+>
+👤 حسابي
+</button>
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-logo">
+            🍽️
+        </div>
+
+        <h1>
+            أهلاً بك في <span>Al3almi</span>
+        </h1>
+
+        <p>
+            طعم مختلف، جودة مميزة، ووجبات بنحب نحضرها مخصوص ليك.
+            اختار وجبتك واطلبها بسهولة من خلال الموقع.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="#menu-section"
+                class="hero-btn hero-btn-primary"
+            >
+                🍔 اطلب الآن
+            </a>
+
+            <a
+                href="#offers"
+                class="hero-btn hero-btn-secondary"
+            >
+                🎁 شوف العروض
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     FEATURES
+========================= -->
+
+<section class="features">
+
+    <h2 class="section-title">
+        ليه Al3almi؟ ⭐
+    </h2>
+
+    <p class="section-subtitle">
+        بنهتم بكل تفصيلة في طلبك
+    </p>
+
+    <div class="features-grid">
+
+        <div class="feature">
+            <div class="feature-icon">🍔</div>
+            <h3>أكل طازج</h3>
+            <p>وجبات محضرة بعناية وبمكونات مختارة.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">⚡</div>
+            <h3>طلب سهل</h3>
+            <p>اختار وجباتك وأرسل الطلب مباشرة على واتساب.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">💰</div>
+            <h3>أسعار مناسبة</h3>
+            <p>مجموعة متنوعة من الوجبات بأسعار مختلفة.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">❤️</div>
+            <h3>نهتم بطلبك</h3>
+            <p>هدفنا إن تجربتك مع Al3almi تكون مميزة.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     OFFERS
+========================= -->
+
+<section class="offers" id="offers">
+
+    <h2 class="section-title">
+        🎁 عروض Al3almi
+    </h2>
+
+    <p class="section-subtitle">
+        عروض مميزة تقدر تضيفها حسب اختيارك
+    </p>
+
+    <div class="offers-grid">
+
+        <div class="offer">
+
+            <span class="offer-badge">
+                عرض اليوم
+            </span>
+
+            <h3>
+                🍔 وجبة البرجر
+            </h3>
+
+            <p>
+                تشيز برجر كلاسيك مع بطاطس كريسبي.
+            </p>
+
+            <div class="offer-price">
+                ابتداءً من 180 جنيه
+            </div>
+
+        </div>
+
+        <div class="offer">
+
+            <span class="offer-badge">
+                الأكثر طلباً
+            </span>
+
+            <h3>
+                🔥 وجبة المشويات
+            </h3>
+
+            <p>
+                اختار من تشكيلة المشويات والوجبات الشرقية.
+            </p>
+
+            <div class="offer-price">
+                أسعار متنوعة
+            </div>
+
+        </div>
+
+        <div class="offer">
+
+            <span class="offer-badge">
+                عرض خاص
+            </span>
+
+            <h3>
+                🐟 سي فود
+            </h3>
+
+            <p>
+                استمتع بتشكيلة من الأسماك والجمبري.
+            </p>
+
+            <div class="offer-price">
+                أسعار متنوعة
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     MENU
+========================= -->
+
+<section class="menu-section" id="menu-section">
+
+    <h2 class="menu-main-title">
+        🍽️ قائمة طعام Al3almi
+    </h2>
+
+    <p class="menu-description">
+        اختار وجباتك المفضلة وحدد الكمية
+    </p>
+
+    <div class="menu-tools">
+
+        <input
+            type="text"
+            id="search-input"
+            class="search-box"
+            placeholder="🔎 ابحث عن وجبتك..."
+            oninput="filterMenu()"
+        >
+
+        <div class="categories">
+
+            <button
+                class="category-btn active"
+                onclick="filterCategory('all',this)"
+            >
+                الكل
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="filterCategory('burger',this)"
+            >
+                🍔 برجر
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="filterCategory('grills',this)"
+            >
+                🔥 مشويات
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="filterCategory('seafood',this)"
+            >
+                🐟 بحريات
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="filterCategory('pizza',this)"
+            >
+                🍕 بيتزا
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="filterCategory('dessert',this)"
+            >
+                🍫 حلويات
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="filterCategory('drinks',this)"
+            >
+                🥤 مشروبات
+            </button>
+
+        </div>
+
+    </div>
+
+    <div
+        class="menu-container"
+        id="menu"
+    ></div>
+
+    <div
+        class="no-results"
+        id="no-results"
+    >
+        😔 مش لاقي الوجبة دي
+    </div>
+
+</section>
+
+<!-- =========================
+     REVIEWS
+========================= -->
+
+<section class="reviews">
+
+    <h2 class="section-title">
+        ⭐ تقييمات العملاء
+    </h2>
+
+    <p class="section-subtitle">
+        أمثلة تجريبية — استبدلها بتقييمات عملائك الحقيقية
+    </p>
+
+    <div class="reviews-grid">
+
+        <div class="review">
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+            <p>الأكل شكله ممتاز وتجربة الطلب سهلة.</p>
+            <strong>عميل</strong>
+        </div>
+
+        <div class="review">
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+            <p>الموقع واضح وسهل في اختيار الوجبات.</p>
+            <strong>عميل</strong>
+        </div>
+
+        <div class="review">
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+            <p>السلة وإرسال الطلب على واتساب فكرة جميلة.</p>
+            <strong>عميل</strong>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     GALLERY
+========================= -->
+
+<section class="gallery" id="gallery">
+
+    <h2 class="section-title">
+        📸 من أكلنا
+    </h2>
+
+    <p class="section-subtitle">
+        صور من قائمة الطعام
+    </p>
+
+    <div class="gallery-grid">
+
+        <div class="gallery-item">
+            <img src="images/burger.jpeg" alt="تشيز برجر">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/kebab.jpeg" alt="كباب">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/pizza.jpeg" alt="بيتزا">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/seafood-mix.jpeg" alt="سي فود">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/shawarma.jpeg" alt="شاورما">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/crepe.jpeg" alt="كريب">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/shrimp.jpeg" alt="جمبري">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/mojito-drinks.jpeg" alt="موخيتو">
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="contact" id="contact">
+
+    <h2 class="section-title">
+        📍 تواصل معنا
+    </h2>
+
+    <p class="section-subtitle">
+        عدّل البيانات التالية من الكود حسب مطعمك
+    </p>
+
+    <div class="contact-grid">
+
+        <div class="contact-card">
+
+            <div class="contact-icon">📱</div>
+
+            <h3>واتساب</h3>
+
+            <p>
+                للطلب والاستفسارات
+            </p>
+
+            <a
+                class="contact-link"
+                href="https://wa.me/201223191528"
+                target="_blank"
+            >
+                راسلنا الآن
+            </a>
+
+        </div>
+
+        <div class="contact-card">
+
+            <div class="contact-icon">🕐</div>
+
+            <h3>مواعيد العمل</h3>
+
+            <p>
+                يومياً من 8:00 صباحًا إلى 11:00 مساءً
+            </p>
+
+        </div>
+
+        <div class="contact-card">
+
+            <div class="contact-icon">📍</div>
+
+            <h3>العنوان</h3>
+
+            <p>
+                أضف عنوان المطعم الحقيقي هنا
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     FLOATING BUTTONS
+========================= -->
+
+<a
+    class="whatsapp-float"
+    href="https://wa.me/201223191528"
+    target="_blank"
+    title="تواصل معنا على واتساب"
+>
+    💬
+</a>
+
+<button
+    class="back-top"
+    id="back-top"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})"
+>
+    ↑
+</button>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div class="footer-logo">
+        🍽️ Al3almi
+    </div>
+
+    <p>
+        طعم مختلف يستاهل التجربة ❤️
+    </p>
+
+    <p>
+        جميع الحقوق محفوظة © Al3almi
+    </p>
+
+</footer>
+
+<!-- =========================
+     BILLING BAR
+========================= -->
+
+<div class="total-billing-bar">
+
+    <div class="billing-label">
+
+        إجمالي حساب الطلبات:
+
+        <span
+            class="billing-amount"
+            id="grand-total"
+        >
+            0 جنيه
+        </span>
+
+    </div>
+
+    <a
+        href="#"
+        class="send-all-btn"
+        id="submit-order-btn"
+        onclick="sendFullOrder(event)"
+    >
+        إرسال الطلب بالكامل (0) 🟢
+    </a>
+
+</div>
+
+<!-- =========================
+     CART
+========================= -->
+
+<div
+    class="cart-overlay"
+    id="cart-overlay"
+>
+
+    <div class="cart-box">
+
+        <h2 class="cart-title">
+            🛒 سلة طلباتك
+        </h2>
+
+        <div id="cart-items"></div>
+
+        <div
+            class="cart-total"
+            id="cart-total"
+        >
+            الإجمالي: 0 جنيه
+        </div>
+
+        <div class="cart-buttons">
+
+            <button
+                class="cart-close"
+                onclick="closeCart()"
+            >
+                متابعة الطلب
+            </button>
+
+            <button
+                class="cart-send"
+                onclick="sendFullOrder(event)"
+            >
+                إتمام الطلب 🟢
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     CUSTOMER FORM
+========================= -->
+
+<div
+    class="customer-overlay"
+    id="customer-overlay"
+>
+
+    <div class="customer-box">
+
+        <h2>
+            📋 بيانات العميل
+        </h2>
+
+        <input
+            type="text"
+            id="customer-name"
+            class="customer-input"
+            placeholder="الاسم"
+        >
+
+        <input
+            type="tel"
+            id="customer-phone"
+            class="customer-input"
+            placeholder="رقم الهاتف"
+        >
+
+        <input
+            type="text"
+            id="customer-address"
+            class="customer-input"
+            placeholder="العنوان"
+        >
+
+        <div class="customer-buttons">
+
+            <button
+                class="confirm-order"
+                onclick="confirmOrder()"
+            >
+                تأكيد وإرسال 🟢
+            </button>
+
+            <button
+                class="cancel-order"
+                onclick="closeCustomerForm()"
+            >
+                إلغاء
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     SUCCESS
+========================= -->
+
+<div
+    class="success-overlay"
+    id="success-overlay"
+>
+
+    <div class="success-box">
+
+        <div class="success-icon">
+            ✅
+        </div>
+
+        <h2>
+            تم تجهيز طلبك بنجاح!
+        </h2>
+
+        <p>
+            رقم الطلب الخاص بك:
+        </p>
+
+        <div
+            class="order-number"
+            id="order-number"
+        >
+            AL-000000
+        </div>
+
+        <p id="success-total">
+            الإجمالي: 0 جنيه
+        </p>
+
+        <p>
+            سيتم فتح واتساب لإرسال تفاصيل الطلب.
+        </p>
+
+        <button
+            class="invoice-button"
+            onclick="openInvoice()"
+        >
+            🧾 عرض الفاتورة
+        </button>
+
+        <button
+            class="success-close"
+            onclick="closeSuccess()"
+        >
+            تمام
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     ACCOUNT
+========================= -->
+
+<div
+    class="account-overlay"
+    id="account-overlay"
+>
+
+    <div class="account-box">
+
+        <h2>
+            👤 حساب العميل
+        </h2>
+
+        <div
+            id="account-content"
+        ></div>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     INVOICE
+========================= -->
+
+<div
+    class="invoice-overlay"
+    id="invoice-overlay"
+>
+
+    <div class="invoice-box">
+
+        <h2 class="invoice-title">
+            🧾 فاتورة Al3almi
+        </h2>
+
+        <div
+            class="invoice-header"
+            id="invoice-header"
+        >
+        </div>
+
+        <div
+            id="invoice-items"
+        >
+        </div>
+
+        <div
+            class="invoice-total"
+            id="invoice-total"
+        >
+            <span>الإجمالي</span>
+            <span>0 جنيه</span>
+        </div>
+
+        <div class="invoice-actions">
+
+            <button
+                class="print-invoice"
+                onclick="printInvoice()"
+            >
+                🖨️ طباعة
+            </button>
+
+            <button
+                class="close-invoice"
+                onclick="closeInvoice()"
+            >
+                إغلاق
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     TRACKING
+========================= -->
+
+<div
+    class="tracking-overlay"
+    id="tracking-overlay"
+>
+
+    <div class="tracking-box">
+
+        <h2 class="tracking-title">
+            📦 متابعة الطلب
+        </h2>
+
+        <div
+            class="tracking-order-number"
+            id="tracking-order-number"
+        >
+            لا يوجد طلب
+        </div>
+
+        <div
+            class="status-step"
+            id="status-1"
+        >
+
+            <div class="status-icon">
+                📥
+            </div>
+
+            <div class="status-text">
+
+                <strong>
+                    تم استلام الطلب
+                </strong>
+
+                <span>
+                    المطعم استلم طلبك
+                </span>
+
+            </div>
+
+        </div>
+
+        <div
+            class="status-step"
+            id="status-2"
+        >
+
+            <div class="status-icon">
+                👨‍🍳
+            </div>
+
+            <div class="status-text">
+
+                <strong>
+                    جاري التحضير
+                </strong>
+
+                <span>
+                    يتم تجهيز طلبك الآن
+                </span>
+
+            </div>
+
+        </div>
+
+        <div
+            class="status-step"
+            id="status-3"
+        >
+
+            <div class="status-icon">
+                ✅
+            </div>
+
+            <div class="status-text">
+
+                <strong>
+                    الطلب جاهز
+                </strong>
+
+                <span>
+                    طلبك أصبح جاهزًا
+                </span>
+
+            </div>
+
+        </div>
+
+        <div
+            class="status-step"
+            id="status-4"
+        >
+
+            <div class="status-icon">
+                🛵
+            </div>
+
+            <div class="status-text">
+
+                <strong>
+                    خرج للتوصيل
+                </strong>
+
+                <span>
+                    الطلب في الطريق إليك
+                </span>
+
+            </div>
+
+        </div>
+
+        <div
+            class="status-step"
+            id="status-5"
+        >
+
+            <div class="status-icon">
+                🎉
+            </div>
+
+            <div class="status-text">
+
+                <strong>
+                    تم التسليم
+                </strong>
+
+                <span>
+                    بالهناء والشفاء ❤️
+                </span>
+
+            </div>
+
+        </div>
+
+        <p class="tracking-note">
+            ملاحظة: المتابعة الموجودة حاليًا تجريبية على نفس الجهاز.
+            الربط الحقيقي مع المطعم يحتاج قاعدة بيانات ولوحة تحكم.
+        </p>
+
+        <div class="tracking-buttons">
+
+            <button onclick="closeTracking()">
+                إغلاق
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+/* =========================
+   SETTINGS
+========================= */
+
+const whatsappNumber="201223191528";
+
+const myMenu=[
+
+{
+    id:1,
+    name:"تشيز برجر كلاسيك",
+    price:140,
+    category:"burger",
+    description:"قطعة لحم بقري مشوي مع شريحة جبن شيدر ذائبة وصوص سري",
+    image:"images/burger.jpeg"
+},
+
+{
+    id:2,
+    name:"كريب نوتيلا",
+    price:95,
+    category:"dessert",
+    description:"كريب فرنسي رقيق محشو بالنوتيلا الغنية مع قطع الموز الطازجة",
+    image:"images/crepe.jpeg"
+},
+
+{
+    id:3,
+    name:"وجبة سمك مشوي",
+    price:130,
+    category:"seafood",
+    description:"سمك طازج مشوي بالردة مع التتبيلة والليمون الخانق",
+    image:"images/fish.jpeg"
+},
+
+{
+    id:4,
+    name:"بطاطس كريسبي مقرمشة",
+    price:40,
+    category:"grills",
+    description:"أصابع بطاطس مقلية ذهبية ومقرمشة مع بهارات المطعم",
+    image:"images/fries.jpeg"
+},
+
+{
+    id:5,
+    name:"حواوشي مشوي على الفحم",
+    price:90,
+    category:"grills",
+    description:"لحم بلدي متبل بالبهارات الشرقية في عيش مقرمش بالزبدة",
+    image:"images/hawawshi.jpeg"
+},
+
+{
+    id:6,
+    name:"طبق كباب مشوي فاخر",
+    price:220,
+    category:"grills",
+    description:"قطع لحم كندوز مشوية بدقة على لهيب فحم طبيعي",
+    image:"images/kebab.jpeg"
+},
+
+{
+    id:7,
+    name:"كفتة بلدي مشوية",
+    price:150,
+    category:"grills",
+    description:"أصابع كفتة لحم بقري مفروم مشوية على السيخ بخلطة سرية",
+    image:"images/kofta.jpeg"
+},
+
+{
+    id:8,
+    name:"وجبة كفتة مخصوص مع الأرز",
+    price:175,
+    category:"grills",
+    description:"أصابع كفتة مشوية تقدم مع أرز بسمتي مبهر وسلطات",
+    image:"images/kofta1.jpeg"
+},
+
+{
+    id:9,
+    name:"موخيتو صيفي بالنعناع",
+    price:45,
+    category:"drinks",
+    description:"مزيج منعش من النعناع الطازج، الليمون الحامض، والصودا الفوارة",
+    image:"images/mojito-drinks.jpeg"
+},
+
+{
+    id:10,
+    name:"ملوخية مصري سادة",
+    price:50,
+    category:"grills",
+    description:"ملوخية خضراء مخروطة طازجة مع طشة الثوم والكزبرة",
+    image:"images/molokhia.jpeg"
+},
+
+{
+    id:14,
+    name:"مكرونة باستا بشاميل",
+    price:80,
+    category:"grills",
+    description:"مكرونة بالفرن غنية باللحم المفروم وصوص البشاميل الكريمي",
+    image:"images/pasta-bashamel.jpeg"
+},
+
+{
+    id:15,
+    name:"بيتزا إيطالية مخصوصة",
+    price:160,
+    category:"pizza",
+    description:"عجينة إيطالية تقليدية غنية بالجبن والخضروات الطازجة",
+    image:"images/pizza.jpeg"
+},
+
+{
+    id:17,
+    name:"طبق سي فود ميكس فاخر",
+    price:290,
+    category:"seafood",
+    description:"تشكيلة بحرية فاخرة من الأسماك والجمبري وفواكه البحر",
+    image:"images/seafood-mix.jpeg"
+},
+
+{
+    id:18,
+    name:"شاورما دجاج سوبريم",
+    price:120,
+    category:"grills",
+    description:"قطع شاورما مع ثومية وبطاطس مخلل داخل عيش صاج مقرمش",
+    image:"images/shawarma.jpeg"
+},
+
+{
+    id:19,
+    name:"وجبة جمبري جامبو",
+    price:260,
+    category:"seafood",
+    description:"جمبري طازج مشوي أو مقلي يقدم مع صوص الطحينة المخصوص",
+    image:"images/shrimp.jpeg"
+},
+
+{
+    id:20,
+    name:"طاجن لحم شرقي بالبصل",
+    price:190,
+    category:"grills",
+    description:"قطع لحم مطهية ببطء داخل طاجن فخاري مع البصل المكرمل",
+    image:"images/tagine2.jpeg"
+},
+
+{
+    id:22,
+    name:"في كولا كانز (عبوة)",
+    price:25,
+    category:"drinks",
+    description:"عبوة معدنية سريعة الانتعاش من في كولا الغازية",
+    image:"images/vcola1.jpeg"
+}
+
+];
+
+/* =========================
+   QUANTITIES
+========================= */
+
+const quantities={};
+
+myMenu.forEach(item=>{
+    quantities[item.id]=0;
+});
+
+// Keep the cart on this device so a refresh does not discard it.
+function saveCart(){
+    localStorage.setItem("al3almi-cart",JSON.stringify(quantities));
+}
+
+function loadCart(){
+    try{
+        const saved=JSON.parse(localStorage.getItem("al3almi-cart")||"{}");
+        myMenu.forEach(item=>{
+            const qty=Number(saved[item.id]);
+            quantities[item.id]=Number.isInteger(qty)&&qty>0?qty:0;
+        });
+    }catch(error){
+        localStorage.removeItem("al3almi-cart");
+    }
+}
+
+loadCart();
+
+let selectedCategory="all";
+
+const container=document.getElementById("menu");
+
+/* =========================
+   CUSTOMER DATA
+========================= */
+
+let currentOrder=null;
+
+/* =========================
+   DISPLAY MENU
+========================= */
+
+function displayMenu(){
+
+    container.innerHTML="";
+
+    const searchText=
+        document
+        .getElementById("search-input")
+        .value
+        .trim()
+        .toLowerCase();
+
+    let foundItems=0;
+
+    myMenu.forEach(item=>{
+
+        const matchesSearch=
+            item.name.toLowerCase().includes(searchText) ||
+            item.description.toLowerCase().includes(searchText);
+
+        const matchesCategory=
+            selectedCategory==="all" ||
+            item.category===selectedCategory;
+
+        if(matchesSearch && matchesCategory){
+
+            foundItems++;
+
+            const currentQty=quantities[item.id];
+
+            const currentTotal=
+                currentQty*item.price;
+
+            container.innerHTML+=`
+
+            <div class="card">
+
+                <div style="overflow:hidden;height:190px">
+
+                    <img
+                        class="card-img"
+                        src="${item.image}"
+                        alt="${item.name}"
+                    >
+
+                </div>
+
+                <div class="card-content">
+
+                    <div>
+
+                        <div class="name">
+                            ${item.name}
+                        </div>
+
+                        <div class="desc">
+                            ${item.description}
+                        </div>
+
+                    </div>
+
+                    <div class="quantity-selector">
+
+                        <button
+                            class="qty-btn"
+                            onclick="changeQty(${item.id},-1)"
+                        >
+                            -
+                        </button>
+
+                        <span
+                            class="qty-number"
+                            id="qty-${item.id}"
+                        >
+                            ${currentQty}
+                        </span>
+
+                        <button
+                            class="qty-btn"
+                            onclick="changeQty(${item.id},1)"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <div class="price">
+                            السعر: ${item.price} جنيه
+                        </div>
+
+                        <div
+                            class="total-item-price"
+                            id="price-${item.id}"
+                        >
+                            ${currentTotal} جنيه
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            `;
+        }
+
+    });
+
+    document.getElementById("no-results").style.display=
+        foundItems===0 ? "block" : "none";
+}
+
+/* =========================
+   FILTER
+========================= */
+
+function filterMenu(){
+    displayMenu();
+}
+
+function filterCategory(category,button){
+
+    selectedCategory=category;
+
+    document
+        .querySelectorAll(".category-btn")
+        .forEach(btn=>btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    displayMenu();
+}
+
+/* =========================
+   QUANTITY
+========================= */
+
+function changeQty(id,change){
+
+    quantities[id]+=change;
+
+    if(quantities[id]<0){
+        quantities[id]=0;
+    }
+
+    const item=
+        myMenu.find(product=>product.id===id);
+
+    const qtyElement=
+        document.getElementById("qty-"+id);
+
+    const priceElement=
+        document.getElementById("price-"+id);
+
+    if(qtyElement){
+        qtyElement.innerText=
+            quantities[id];
+    }
+
+    if(priceElement){
+        priceElement.innerText=
+            (quantities[id]*item.price)+" جنيه";
+    }
+
+    saveCart();
+    calculateGrandTotal();
+    updateCartCount();
+}
+
+/* =========================
+   TOTAL
+========================= */
+
+function calculateGrandTotal(){
+
+    let grandTotal=0;
+    let totalItems=0;
+
+    myMenu.forEach(item=>{
+
+        grandTotal+=
+            quantities[item.id]*item.price;
+
+        totalItems+=
+            quantities[item.id];
+
+    });
+
+    document.getElementById("grand-total").innerText=
+        grandTotal+" جنيه";
+
+    document.getElementById("submit-order-btn").innerText=
+        `إرسال الطلب بالكامل (${totalItems}) 🟢`;
+}
+
+function updateCartCount(){
+
+    let totalItems=0;
+
+    myMenu.forEach(item=>{
+        totalItems+=quantities[item.id];
+    });
+
+    document.getElementById("cart-count").innerText=
+        totalItems;
+}
+
+/* =========================
+   CART
+========================= */
+
+function openCart(){
+
+    renderCart();
+
+    document.getElementById("cart-overlay").style.display=
+        "flex";
+}
+
+function closeCart(){
+
+    document.getElementById("cart-overlay").style.display=
+        "none";
+}
+
+function renderCart(){
+
+    const cartItems=
+        document.getElementById("cart-items");
+
+    cartItems.innerHTML="";
+
+    let total=0;
+    let itemCount=0;
+
+    myMenu.forEach(item=>{
+
+        const qty=quantities[item.id];
+
+        if(qty>0){
+
+            itemCount+=qty;
+
+            const itemTotal=
+                qty*item.price;
+
+            total+=itemTotal;
+
+            cartItems.innerHTML+=`
+
+            <div class="cart-item">
+
+                <div class="cart-item-top">
+
+                    <div class="cart-item-name">
+                        ${item.name}
+                    </div>
+
+                    <div class="cart-item-price">
+                        ${itemTotal} جنيه
+                    </div>
+
+                </div>
+
+                <div class="cart-item-bottom">
+
+                    <div class="cart-qty">
+
+                        <button
+                            onclick="changeQty(${item.id},-1);renderCart()"
+                        >
+                            -
+                        </button>
+
+                        <span>
+                            ${qty}
+                        </span>
+
+                        <button
+                            onclick="changeQty(${item.id},1);renderCart()"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+                    <button
+                        class="remove-item"
+                        onclick="removeFromCart(${item.id})"
+                    >
+                        حذف
+                    </button>
+
+                </div>
+
+            </div>
+
+            `;
+        }
+
+    });
+
+    if(itemCount===0){
+
+        cartItems.innerHTML=`
+            <div class="empty-cart">
+                🛒 السلة فاضية دلوقتي
+            </div>
+        `;
+    }
+
+    document.getElementById("cart-total").innerText=
+        `الإجمالي: ${total} جنيه`;
+}
+
+function removeFromCart(id){
+
+    quantities[id]=0;
+
+    saveCart();
+    calculateGrandTotal();
+    updateCartCount();
+    renderCart();
+    displayMenu();
+}
+
+/* =========================
+   ORDER FORM
+========================= */
+
+function sendFullOrder(event){
+
+    if(event){
+        event.preventDefault();
+    }
+
+    let totalItems=0;
+
+    myMenu.forEach(item=>{
+        totalItems+=quantities[item.id];
+    });
+
+    if(totalItems===0){
+
+        alert(
+            "من فضلك اختر وجبة واحدة على الأقل قبل إرسال الطلب."
+        );
+
+        return;
+    }
+
+    closeCart();
+
+    loadSavedCustomer();
+
+    document.getElementById("customer-overlay").style.display=
+        "flex";
+}
+
+function closeCustomerForm(){
+
+    document.getElementById("customer-overlay").style.display=
+        "none";
+}
+
+/* =========================
+   ORDER NUMBER
+========================= */
+
+function createOrderNumber(){
+
+    const now=new Date();
+
+    const random=
+        Math.floor(100+Math.random()*900);
+
+    return `AL-${now.getFullYear()}${String(
+        now.getMonth()+1
+    ).padStart(2,"0")}${String(
+        now.getDate()
+    ).padStart(2,"0")}-${random}`;
+}
+
+/* =========================
+   CUSTOMER ACCOUNT
+========================= */
+
+function saveCustomerData(){
+
+    const name=
+        document
+        .getElementById("customer-name")
+        .value
+        .trim();
+
+    const phone=
+        document
+        .getElementById("customer-phone")
+        .value
+        .trim();
+
+    const address=
+        document
+        .getElementById("customer-address")
+        .value
+        .trim();
+
+    localStorage.setItem(
+        "al3almi-customer",
+        JSON.stringify({
+            name:name,
+            phone:phone,
+            address:address
+        })
+    );
+}
+
+function loadSavedCustomer(){
+
+    const saved=
+        localStorage.getItem("al3almi-customer");
+
+    if(!saved){
+        return;
+    }
+
+    try{
+
+        const data=
+            JSON.parse(saved);
+
+        document.getElementById("customer-name").value=
+            data.name || "";
+
+        document.getElementById("customer-phone").value=
+            data.phone || "";
+
+        document.getElementById("customer-address").value=
+            data.address || "";
+
+    }catch(error){
+
+        console.log("Customer data error");
+
+    }
+}
+
+function openAccount(){
+
+    renderAccount();
+
+    document.getElementById("account-overlay").style.display=
+        "flex";
+}
+
+function closeAccount(){
+
+    document.getElementById("account-overlay").style.display=
+        "none";
+}
+
+function renderAccount(){
+
+    const content=
+        document.getElementById("account-content");
+
+    const saved=
+        localStorage.getItem("al3almi-customer");
+
+    if(saved){
+
+        const data=
+            JSON.parse(saved);
+
+        content.innerHTML=`
+
+            <div class="account-info">
+
+                <strong>الاسم:</strong>
+                ${data.name || "-"}
+                <br>
+
+                <strong>الهاتف:</strong>
+                ${data.phone || "-"}
+                <br>
+
+                <strong>العنوان:</strong>
+                ${data.address || "-"}
+
+            </div>
+
+            <div class="account-actions">
+
+                <button
+                    class="save-account"
+                    onclick="editAccount()"
+                >
+                    ✏️ تعديل البيانات
+                </button>
+
+                <button
+                    class="logout-account"
+                    onclick="logoutAccount()"
+                >
+                    حذف الحساب
+                </button>
+
+            </div>
+
+            <div class="account-buttons">
+
+                <button
+                    class="account-button"
+                    onclick="openTrackingFromAccount()"
+                >
+                    📦 متابعة آخر طلب
+                </button>
+
+            </div>
+        `;
+
+    }else{
+
+        content.innerHTML=`
+
+            <p
+                class="account-info"
+            >
+                مفيش حساب محفوظ على الجهاز.
+                بياناتك هتتحفظ تلقائيًا بعد أول طلب.
+            </p>
+
+            <button
+                class="account-button"
+                onclick="editAccount()"
+            >
+                👤 إضافة بياناتي
+            </button>
+
+        `;
+    }
+}
+
+function editAccount(){
+
+    closeAccount();
+
+    loadSavedCustomer();
+
+    document.getElementById("customer-overlay").style.display=
+        "flex";
+}
+
+function logoutAccount(){
+
+    localStorage.removeItem("al3almi-customer");
+
+    alert("تم حذف بيانات الحساب من هذا الجهاز.");
+
+    renderAccount();
+}
+
+function openTrackingFromAccount(){
+
+    closeAccount();
+
+    if(!currentOrder){
+
+        const savedOrder=
+            localStorage.getItem("al3almi-last-order");
+
+        if(savedOrder){
+
+            try{
+                currentOrder=
+                    JSON.parse(savedOrder);
+            }catch(error){
+                currentOrder=null;
+            }
+
+        }
+
+    }
+
+    if(!currentOrder){
+
+        alert("مفيش طلب محفوظ لمتابعته دلوقتي.");
+
+        return;
+    }
+
+    openTracking();
+}
+
+/* =========================
+   CONFIRM ORDER
+========================= */
+
+function confirmOrder(){
+
+    const customerName=
+        document
+        .getElementById("customer-name")
+        .value
+        .trim();
+
+    const customerPhone=
+        document
+        .getElementById("customer-phone")
+        .value
+        .trim();
+
+    const customerAddress=
+        document
+        .getElementById("customer-address")
+        .value
+        .trim();
+
+    if(
+        customerName==="" ||
+        customerPhone==="" ||
+        customerAddress===""
+    ){
+
+        alert(
+            "من فضلك اكتب الاسم ورقم الهاتف والعنوان."
+        );
+
+        return;
+    }
+
+    saveCustomerData();
+
+    const orderNumber=
+        createOrderNumber();
+
+    let message=
+        "🍽️ طلب جديد من مطعم Al3almi\n\n";
+
+    message+=
+        "🧾 رقم الطلب: "+
+        orderNumber+
+        "\n\n";
+
+    message+=
+        "👤 بيانات العميل\n";
+
+    message+=
+        `الاسم: ${customerName}\n`;
+
+    message+=
+        `رقم الهاتف: ${customerPhone}\n`;
+
+    message+=
+        `العنوان: ${customerAddress}\n\n`;
+
+    message+=
+        "🛒 تفاصيل الطلب\n\n";
+
+    let grandTotal=0;
+
+    const orderItems=[];
+
+    myMenu.forEach(item=>{
+
+        const qty=
+            quantities[item.id];
+
+        if(qty>0){
+
+            const itemTotal=
+                qty*item.price;
+
+            message+=
+                `🍴 ${item.name}\n`;
+
+            message+=
+                `الكمية: ${qty}\n`;
+
+            message+=
+                `السعر: ${itemTotal} جنيه\n\n`;
+
+            grandTotal+=itemTotal;
+
+            orderItems.push({
+                name:item.name,
+                qty:qty,
+                price:item.price,
+                total:itemTotal
+            });
+        }
+
+    });
+
+    message+=
+        "━━━━━━━━━━━━\n";
+
+    message+=
+        "💰 الإجمالي: "+
+        grandTotal+
+        " جنيه\n\n";
+
+    message+=
+        "شكراً لطلبك ❤️";
+
+    currentOrder={
+        number:orderNumber,
+        customer:{
+            name:customerName,
+            phone:customerPhone,
+            address:customerAddress
+        },
+        items:orderItems,
+        total:grandTotal,
+        status:1,
+        date:new Date().toLocaleString("ar-EG")
+    };
+
+    localStorage.setItem(
+        "al3almi-last-order",
+        JSON.stringify(currentOrder)
+    );
+
+    // The order is now recorded; start the next order with an empty cart.
+    myMenu.forEach(item=>quantities[item.id]=0);
+    localStorage.removeItem("al3almi-cart");
+    displayMenu();
+    calculateGrandTotal();
+    updateCartCount();
+
+    const whatsappURL=
+        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    closeCustomerForm();
+
+    document.getElementById("order-number").innerText=
+        orderNumber;
+
+    document.getElementById("success-total").innerText=
+        `الإجمالي: ${grandTotal} جنيه`;
+
+    document.getElementById("success-overlay").style.display=
+        "flex";
+
+    updateTracking();
+
+    setTimeout(
+        ()=>window.open(whatsappURL,"_blank"),
+        700
+    );
+}
+
+/* =========================
+   SUCCESS
+========================= */
+
+function closeSuccess(){
+
+    document.getElementById("success-overlay").style.display=
+        "none";
+}
+
+function openInvoice(){
+
+    if(!currentOrder){
+        return;
+    }
+
+    renderInvoice();
+
+    closeSuccess();
+
+    document.getElementById("invoice-overlay").style.display=
+        "flex";
+}
+
+function closeInvoice(){
+
+    document.getElementById("invoice-overlay").style.display=
+        "none";
+}
+
+/* =========================
+   INVOICE
+========================= */
+
+function renderInvoice(){
+
+    if(!currentOrder){
+        return;
+    }
+
+    document.getElementById("invoice-header").innerHTML=`
+
+        <h3>
+            Al3almi
+        </h3>
+
+        <div>
+            رقم الطلب:
+            <strong>${currentOrder.number}</strong>
+        </div>
+
+        <div>
+            التاريخ:
+            ${currentOrder.date}
+        </div>
+
+        <div>
+            العميل:
+            ${currentOrder.customer.name}
+        </div>
+
+        <div>
+            الهاتف:
+            ${currentOrder.customer.phone}
+        </div>
+
+        <div>
+            العنوان:
+            ${currentOrder.customer.address}
+        </div>
+
+    `;
+
+    const itemsContainer=
+        document.getElementById("invoice-items");
+
+    itemsContainer.innerHTML="";
+
+    currentOrder.items.forEach(item=>{
+
+        itemsContainer.innerHTML+=`
+
+            <div class="invoice-row">
+
+                <span>
+                    ${item.name}
+                    × ${item.qty}
+                </span>
+
+                <strong>
+                    ${item.total} جنيه
+                </strong>
+
+            </div>
+
+        `;
+
+    });
+
+    document.getElementById("invoice-total").innerHTML=`
+
+        <span>
+            الإجمالي
+        </span>
+
+        <span>
+            ${currentOrder.total} جنيه
+        </span>
+
+    `;
+}
+
+/* =========================
+   PRINT INVOICE
+========================= */
+
+function printInvoice(){
+
+    if(!currentOrder){
+        return;
+    }
+
+    const invoiceHTML=
+        document.querySelector(".invoice-box").innerHTML;
+
+    const printWindow=
+        window.open(
+            "",
+            "_blank",
+            "width=700,height=800"
+        );
+
+    printWindow.document.write(`
+
+        <html lang="ar" dir="rtl">
+
+        <head>
+
+            <title>
+                فاتورة Al3almi
+            </title>
+
+            <style>
+
+                body{
+                    font-family:Arial;
+                    padding:30px;
+                    color:#222;
+                    direction:rtl
+                }
+
+                h2{
+                    text-align:center;
+                    color:#e63e4a
+                }
+
+                h3{
+                    text-align:center
+                }
+
+                .invoice-row{
+                    display:flex;
+                    justify-content:space-between;
+                    padding:10px 0;
+                    border-bottom:1px solid #ddd
+                }
+
+                .invoice-total{
+                    display:flex;
+                    justify-content:space-between;
+                    margin-top:20px;
+                    padding:15px;
+                    font-size:20px;
+                    font-weight:bold;
+                    border:1px solid #ddd
+                }
+
+                button{
+                    display:none
+                }
+
+            </style>
+
+        </head>
+
+        <body>
+
+            ${invoiceHTML}
+
+        </body>
+
+        </html>
+
+    `);
+
+    printWindow.document.close();
+
+    printWindow.focus();
+
+    setTimeout(
+        ()=>printWindow.print(),
+        300
+    );
+}
+
+/* =========================
+   TRACKING
+========================= */
+
+function openTracking(){
+
+    if(!currentOrder){
+        return;
+    }
+
+    document.getElementById("tracking-order-number").innerText=
+        "رقم الطلب: "+currentOrder.number;
+
+    updateTracking();
+
+    document.getElementById("tracking-overlay").style.display=
+        "flex";
+}
+
+function closeTracking(){
+
+    document.getElementById("tracking-overlay").style.display=
+        "none";
+}
+
+function updateTracking(){
+
+    if(!currentOrder){
+        return;
+    }
+
+    for(let i=1;i<=5;i++){
+
+        const step=
+            document.getElementById("status-"+i);
+
+        if(i<=currentOrder.status){
+
+            step.classList.add("active");
+
+        }else{
+
+            step.classList.remove("active");
+
+        }
+
+    }
+
+    document.getElementById("tracking-order-number").innerText=
+        "رقم الطلب: "+currentOrder.number;
+}
+
+/* =========================
+   DEMO STATUS
+========================= */
+
+function demoNextStatus(){
+
+    if(!currentOrder){
+        return;
+    }
+
+    if(currentOrder.status<5){
+
+        currentOrder.status++;
+
+        localStorage.setItem(
+            "al3almi-last-order",
+            JSON.stringify(currentOrder)
+        );
+
+        updateTracking();
+    }
+}
+
+/*
+    دي للتجربة فقط.
+    تقدر بعدين تعمل لوحة تحكم للمطعم
+    تغير منها حالة الطلب الحقيقية.
+*/
+
+setInterval(()=>{
+
+    if(currentOrder){
+
+        /*
+        لا يتم تغيير الحالة تلقائيًا
+        حتى لا تتغير حالة الطلب بدون المطعم.
+        */
+
+    }
+
+},5000);
+
+/* =========================
+   THEME
+========================= */
+
+function toggleNavigation(){
+    const nav=document.getElementById("site-nav");
+    const button=nav.querySelector(".site-nav-toggle");
+    const isOpen=nav.classList.toggle("is-open");
+    button.setAttribute("aria-expanded",String(isOpen));
+}
+
+function closeNavigation(){
+    const nav=document.getElementById("site-nav");
+    nav.classList.remove("is-open");
+    nav.querySelector(".site-nav-toggle").setAttribute("aria-expanded","false");
+}
+
+function toggleTheme(){
+
+    document.body.classList.toggle("light");
+
+    const isLight=
+        document.body.classList.contains("light");
+
+    localStorage.setItem(
+        "al3almi-theme",
+        isLight ? "light" : "dark"
+    );
+
+    document.getElementById("theme-button").innerText=
+        isLight ? "☀️" : "🌙";
+}
+
+if(
+    localStorage.getItem("al3almi-theme")==="light"
+){
+
+    document.body.classList.add("light");
+
+    document.getElementById("theme-button").innerText=
+        "☀️";
+}
+
+/* =========================
+   SCROLL
+========================= */
+
+window.addEventListener("scroll",()=>{
+
+    document.getElementById("back-top").style.display=
+        window.scrollY>500 ? "block" : "none";
+
+});
+
+/* =========================
+   ESCAPE
+========================= */
+
+document.addEventListener("keydown",e=>{
+
+    if(e.key==="Escape"){
+
+        closeCart();
+        closeCustomerForm();
+        closeSuccess();
+        closeAccount();
+        closeInvoice();
+        closeTracking();
+
+    }
+
+});
+
+/* =========================
+   LOAD LAST ORDER
+========================= */
+
+const savedLastOrder=
+    localStorage.getItem("al3almi-last-order");
+
+if(savedLastOrder){
+
+    try{
+
+        currentOrder=
+            JSON.parse(savedLastOrder);
+
+    }catch(error){
+
+        currentOrder=null;
+
+    }
+
+}
+
+/* =========================
+   START
+========================= */
+
+displayMenu();
+calculateGrandTotal();
+updateCartCount();
+
+</script>
+
+</body>
+</html> 
